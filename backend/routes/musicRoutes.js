@@ -7,7 +7,9 @@ const {
     deleteMusic,
  } = require('../controllers/musicController')
 
-router.route('/').get(getMusic).post(setMusic)
-router.route('/:id').delete(deleteMusic).put(updateMusic)
+ const {protect} = require('../middleware/authMiddleware')
+
+router.route('/').get(protect, getMusic).post(protect, setMusic)
+router.route('/:id').delete(protect, deleteMusic).put(protect, updateMusic)
 
 module.exports = router
