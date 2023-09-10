@@ -14,14 +14,56 @@ const registerUser = asyncHandler(async(req, res) => {
         throw new Error('Please add all fields')
     }
 
-    res.json({ message: 'Register User' })
+    // Check if user exists
+    const userExists = await User.findOne({email})
+
+    if(userExists) {
+        res.status(400)
+        throw new Error('User already exists')
+    }
+
+    // Hash password
+    const salt = await bcyrpt.genSalt(10)
+    const hashedPassword = await bcyrpt.hash(password, salt)
+
+    // Create user
+    const user = await User.create({
+        name,
+        email,
+        password: hashedPassword
+    })
+
+    if(user) {
+        res.status(201).json({
+            _id: user.id,
+            name: user.name,
+            email: user.email
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid user data')
+    }
 })
 
 // @desc Authenticate a user
 // @route POST /api/users/login
 // @access Public
 const loginUser = asyncHandler(async(req, res) => {
-    res.json({ message: 'Login User' })
+    const {email, password} = req.body
+
+    // Check for user email
+    const user = await User.findOne({email})
+
+    if(user && (await bcyrpt.compare(password, user.password))) {
+        res.json({
+            _id: user.id,
+            name: user.name,
+            email: user.email
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid credentials')
+    }
 })
 
 // @desc Get user data
