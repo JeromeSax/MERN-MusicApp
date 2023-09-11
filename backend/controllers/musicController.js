@@ -40,21 +40,21 @@ const updateMusic = asyncHandler(async (req, res) => {
         throw new Error('Music not found')
     }
 
-    const user = await User.findById(req.user.id)
+
  
     // Check for user
-    if(!user) {
+    if(!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure logged in user matches the music user
-    if(music.user.toString() !== user.id) {
+    if(music.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
 
-    const updatedMusic = await Music.findByIdAndUpdate(req.params.id, req.
+    const updatedMusic = await Music.findByIdAndUpdate(req.params.id, req,
     body, {
         new: true, 
     })
@@ -73,16 +73,16 @@ const deleteMusic = asyncHandler(async (req, res) => {
         throw new Error('Music not found')
     }
 
-    const user = await User.findById(req.user.id)
+
  
     // Check for user
-    if(!user) {
+    if(!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Make sure logged in user matches the music user
-    if(music.user.toString() !== user.id) {
+    if(music.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -90,7 +90,7 @@ const deleteMusic = asyncHandler(async (req, res) => {
     await Music.findByIdAndRemove(req.params.id);
 
     res.status(200).json({ id: req.params.id })
-})
+});
 
 module.exports = {
     getMusic,

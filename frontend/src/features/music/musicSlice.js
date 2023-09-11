@@ -1,8 +1,8 @@
-import { createMusic, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import musicService from './musicService'
 
 const initialState = {
-    songs: [],
+    musics: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -13,8 +13,8 @@ const initialState = {
 export const createMusic = createAsyncThunk('musics/create',
     async (musicData, thunkAPI) => {
         try {
-            const token = thunkAPI.getState().auth.user.token
-            return await musicService.createMusic(musicData, token)
+            const token = thunkAPI.getState().auth.user.token;
+            return await musicService.createMusic(musicData, token);
         } catch (error) {
             const message =
                 (error.response &&
@@ -26,7 +26,7 @@ export const createMusic = createAsyncThunk('musics/create',
         }
     })
 
-// Get user goals
+// Get user music
 export const getMusics = createAsyncThunk
     ('musics/getAll',
         async (_, thunkAPI) => {
@@ -45,9 +45,9 @@ export const getMusics = createAsyncThunk
         }
     )
 
-    // Delete user goal 
+    // Delete user music
 export const deleteMusic = createAsyncThunk(
-    'music/delete', 
+    'musics/delete', 
 async (id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
@@ -64,7 +64,7 @@ async (id, thunkAPI) => {
     }
 })
 
-export const musicSlice = createMusic({
+export const musicSlice = createSlice({
     name: 'music',
     initialState,
     reducers: {
@@ -107,7 +107,7 @@ export const musicSlice = createMusic({
                 state.musics = state.musics.filter(
                     (music) => music._id !== action.payload.id) 
             })
-            .addCase(deletemusic.rejected, (state, action) => {
+            .addCase(deleteMusic.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
