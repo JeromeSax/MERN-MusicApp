@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(12, 121, 237);
+  background-color: hsl(211, 87%, 65%);
 }
 
 body {
@@ -84,7 +84,7 @@ h3 {
 }
 
 .heading p {
-  color: #828282;
+  color: hsl(0, 8%, 95%);
 }
 
 .musics {

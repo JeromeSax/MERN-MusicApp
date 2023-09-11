@@ -15,7 +15,7 @@ const registerUser = asyncHandler(async(req, res) => {
     }
 
     // Check if user exists
-    const userExists = await User.findOne({email})
+    const userExists = await User.findOne({ email })
 
     if(userExists) {
         res.status(400)
@@ -38,7 +38,7 @@ const registerUser = asyncHandler(async(req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         })
     } else {
         res.status(400)
@@ -49,7 +49,7 @@ const registerUser = asyncHandler(async(req, res) => {
 // @desc Authenticate a user
 // @route POST /api/users/login
 // @access Public
-const loginUser = asyncHandler(async(req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body
 
     // Check for user email
@@ -72,13 +72,7 @@ const loginUser = asyncHandler(async(req, res) => {
 // @route GET /api/users/me
 // @access Public
 const getMe = asyncHandler(async(req, res) => {
-    const {_id, name, email} = await User.findById(req.user.id)
-
-    res.status(200).json({
-        id: _id,
-        name,
-        email,
-    })
+    res.status(200).json(req.user)
 })
 
 // Generate JWT

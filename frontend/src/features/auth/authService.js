@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// making a cal to out api/backend
+// making a call to out api/backend
 const API_URL = '/api/users/'
 
 // Register user
