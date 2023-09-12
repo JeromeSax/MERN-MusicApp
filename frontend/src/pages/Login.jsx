@@ -96,6 +96,7 @@ function Login() {
                 </div>
                 <div className="form-group">
                     <button type="submit" className='btn btn-block'>Submit</button>
+                    <p className='p2'>This app was made for musicians to organize their music and band members for upcoming shows. Ready to gig?</p>
                 </div>
             </form>
         </section>

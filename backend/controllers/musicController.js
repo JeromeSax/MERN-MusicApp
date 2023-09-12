@@ -39,8 +39,6 @@ const updateMusic = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Music not found')
     }
-
-
  
     // Check for user
     if(!req.user) {
