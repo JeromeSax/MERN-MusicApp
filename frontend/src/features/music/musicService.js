@@ -28,6 +28,25 @@ const getMusics = async (token) => {
     return response.data
 }
 
+// Update user music
+const updateMusic = async (musicId, updatedData, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json' // Make sure to set Content-Type header
+        },
+    }
+
+    try {
+        const response = await axios.put(API_URL + musicId, updatedData, config);
+
+        return response.data;
+    } catch (error) {
+        // Handle error (e.g., show a notification)
+        throw error;
+    }
+}
+
 // Delete user music
 const deleteMusic = async (musicId, token) => {
     const config = {
@@ -45,6 +64,7 @@ const deleteMusic = async (musicId, token) => {
 const musicService = {
     createMusic,
     getMusics,
+    updateMusic,
     deleteMusic,
 } 
 

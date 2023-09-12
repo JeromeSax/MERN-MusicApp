@@ -4,9 +4,9 @@ const Musician = require('../models/musicianModel');
 // @desc Get all musicians
 // @route GET /api/musicians
 // @access Private
-const getMusicians = asyncHandler(async (req, res) => {
-  const musicians = await Musician.find({ user: req.user.id });
-  res.status(200).json(musicians);
+const getMusician = asyncHandler(async (req, res) => {
+  const musician = await Musician.find({ user: req.user.id });
+  res.status(200).json(musician);
 });
 
 // @desc Create a musician
@@ -77,7 +77,7 @@ const deleteMusician = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getMusicians,
+  getMusician,
   createMusician,
   updateMusician,
   deleteMusician,
