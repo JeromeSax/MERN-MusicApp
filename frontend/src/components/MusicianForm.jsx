@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMusician } from '../features/music/musicSlice';
+import { createMusician } from '../features/music/musicSlice';
 
 const MusicianForm = () => {
   const [name, setName] = useState('');
@@ -10,7 +10,7 @@ const MusicianForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(addMusician({ name, instrument }));
+    dispatch(createMusician({ name, instrument }));
     setName('');
     setInstrument('');
   };

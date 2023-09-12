@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import musicService from './musicService'
+import musicianService from './musicianService'
 
 const initialState = {
     musics: [],
+    musicians: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -26,13 +28,13 @@ export const createMusic = createAsyncThunk('musics/create',
         }
     })
 
-    // Add a musician
-export const addMusician = createAsyncThunk(
+    // Add new musician
+export const createMusician = createAsyncThunk(
     'musicians/add',
     async (musicianData, thunkAPI) => {
       try {
         const token = thunkAPI.getState().auth.user.token;
-        return await musicService.addMusician(musicianData, token);
+        return await musicService.createMusician(musicianData, token);
       } catch (error) {
         const message =
           (error.response &&
@@ -74,6 +76,44 @@ async (id, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
         return await musicService.deleteMusic(id, 
+        token)
+    } catch (error) {
+        const message = 
+        (error.response && 
+            error.response.data && 
+            error.response.data.message) || 
+            error.message || 
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+// Get user musicians 
+export const getMusicians = createAsyncThunk
+    ('musicians/getAll',
+        async (_, thunkAPI) => {
+            try {
+                const token = thunkAPI.getState().auth.user.token
+                return await musicianService.getMusicians(token)
+            } catch (error) {
+                const message =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString()
+                return thunkAPI.rejectWithValue(message)
+            }
+        }
+    )
+
+// Delete user musician
+export const deleteMusician = createAsyncThunk(
+    'musician/delete', 
+async (id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await musicianService.deleteMusician(id, 
         token)
     } catch (error) {
         const message = 
@@ -134,6 +174,49 @@ export const musicSlice = createSlice({
                 state.isError = true
                 state.message = action.payload
             })
+
+             // Handle createMusician action
+      .addCase(createMusician.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createMusician.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.musicians.push(action.payload); // Add the new musician to the state
+      })
+      .addCase(createMusician.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+
+      .addCase(getMusicians.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(getMusicians.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.musicians = action.payload
+    })
+    .addCase(getMusicians.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+    })
+    .addCase(deleteMusician.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(deleteMusician.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.musicians = state.musicians.filter(
+            (music) => music._id !== action.payload.id) 
+    })
+    .addCase(deleteMusician.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+    })
     },
 })
 
