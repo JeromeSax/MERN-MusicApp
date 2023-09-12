@@ -39,7 +39,7 @@ function Homepage() {
   <>
     <section className="heading">
       <h1>Welcome {user && user.name}</h1>
-      <p>Music Homepage</p>
+      <p>Gig Homepage</p>
     </section>
     <MusicForm />
 

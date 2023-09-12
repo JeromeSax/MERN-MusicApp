@@ -4,11 +4,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: hsl(211, 87%, 65%);
+  /* background-color: hsl(211, 87%, 65%); */
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 100vh;
 }
 
@@ -34,6 +34,7 @@ h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
+  
 }
 
 .container {
@@ -51,6 +52,10 @@ h3 {
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 60px;
+  font-size: 30px;
+  font-weight: 700;
+  
+  
 }
 
 .header ul {
@@ -81,10 +86,11 @@ h3 {
   font-weight: 700;
   margin-bottom: 50px;
   padding: 0 20px;
+  
 }
 
 .heading p {
-  color: hsl(0, 8%, 95%);
+  color: hwb(0 0% 98%);
 }
 
 .musics {
@@ -94,7 +100,7 @@ h3 {
 }
 
 .music {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 23%, 95%);
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
@@ -124,7 +130,7 @@ h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #e6e6e6;
+  border: 2px solid #f6f6f6;
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;

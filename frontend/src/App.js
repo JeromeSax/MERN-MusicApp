@@ -5,12 +5,19 @@ import Register from './pages/Register';
 import Header from './components/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import gigImage from './assets/images/gig.jpg';
 
 
 
 function App() {
+  const styles = {
+    backgroundImage: `url(${gigImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '160vh', // Adjust to your design requirements
+  };
   return (
-    <>
+    <div style={styles}>
     <Router>
     <div className='container'>
       <Header />
@@ -22,7 +29,7 @@ function App() {
     </div>
     </Router>
     <ToastContainer />
-    </>
+    </div>
   );
 }
 
