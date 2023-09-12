@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import MusicForm from "../components/MusicForm"
 import MusicItem from "../components/MusicItem"
+import MusicianForm from "../components/MusicianForm"; 
 import Spinner from '../components/Spinner'
 import {getMusics, reset} from '../features/music/musicSlice'
+
 
 
 function Homepage() {
@@ -42,6 +44,7 @@ function Homepage() {
       <p>Gig Homepage</p>
     </section>
     <MusicForm />
+    <MusicianForm />
 
     <section className="content">
       {musics.length > 0 ? (

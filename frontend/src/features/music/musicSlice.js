@@ -26,6 +26,28 @@ export const createMusic = createAsyncThunk('musics/create',
         }
     })
 
+    // Add a musician
+export const addMusician = createAsyncThunk(
+    'musicians/add',
+    async (musicianData, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token;
+        return await musicService.addMusician(musicianData, token);
+      } catch (error) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+  );
+  
+ 
+  
+
 // Get user music
 export const getMusics = createAsyncThunk
     ('musics/getAll',
