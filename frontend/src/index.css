@@ -34,6 +34,7 @@ h2,
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
+  color: #000000;
   
 }
 
@@ -54,6 +55,7 @@ h3 {
   margin-bottom: 60px;
   font-size: 30px;
   font-weight: 700;
+  color: #fbfaf7;
   
   
 }
@@ -90,7 +92,7 @@ h3 {
 }
 
 .heading p {
-  color: hwb(0 0% 98%);
+  color: #000000;
 }
 
 .musics {
@@ -140,6 +142,10 @@ h3 {
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
+  color:#080600;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f5ba09;
 }
 
 .btn {
@@ -219,4 +225,9 @@ h3 {
   .heading p {
     font-size: 1.5rem;
   }
+}
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; 
 }

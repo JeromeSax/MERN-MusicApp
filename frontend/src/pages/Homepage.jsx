@@ -43,8 +43,10 @@ function Homepage() {
       <h1>Welcome {user && user.name}</h1>
       <p>Gig Homepage</p>
     </section>
+    <div className="form-container">
     <MusicForm />
     <MusicianForm />
+    </div>
 
     <section className="content">
       {musics.length > 0 ? (
@@ -54,7 +56,7 @@ function Homepage() {
           ))}
         </div>
       ) : (
-      <h3>You have not created a setlist</h3>)}
+      <h3>You have not organized your Gig</h3>)}
     </section>
   </>
   )
