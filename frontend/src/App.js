@@ -14,7 +14,7 @@ function App() {
     backgroundImage: `url(${gigImage})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: '160vh', 
+    height: '190vh', 
   };
   return (
     <div style={styles}>

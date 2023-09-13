@@ -21,7 +21,7 @@ function MusicForm() {
     <section className='form'>
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <label htmlFor="text">Music</label>
+                <label htmlFor="text">SetList</label>
                 <input 
                 type="text" 
                 name='text' 

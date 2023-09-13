@@ -19,7 +19,7 @@ const MusicianForm = () => {
     <section className="form">
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Musician Name</label>
+          <label htmlFor="name">Band Members</label>
           <input
             type="text"
             name="name"

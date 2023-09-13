@@ -93,6 +93,7 @@ h3 {
 
 .heading p {
   color: #000000;
+  font-weight: 900;
 }
 
 .musics {
@@ -102,10 +103,11 @@ h3 {
 }
 
 .music {
-  background-color: hsl(0, 23%, 95%);
+  background-color: hsl(0, 0%, 100%);
   margin: 10px 0;
   padding: 20px 0 10px;
-  position: relative;
+  width: 300px;
+  margin-right: 40px;
 }
 
 .music .close {
@@ -144,8 +146,8 @@ h3 {
   margin: 0 0 5px 3px;
   color:#080600;
   font-size: 20px;
-  font-weight: 600;
-  color: #f5ba09;
+  font-weight: 800;
+  color: #000000;
 }
 .p2 {
   font-size: 20px;
@@ -233,5 +235,5 @@ h3 {
 .form-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 20px; 
+  gap: 300px; 
 }
