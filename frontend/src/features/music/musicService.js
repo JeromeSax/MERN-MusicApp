@@ -29,16 +29,16 @@ const getMusics = async (token) => {
 }
 
 // Update user music
-const updateMusic = async (musicId, updatedData, token) => {
+const updateMusic = async ( updatedData, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json' // Make sure to set Content-Type header
+            // Make sure to set Content-Type header
         },
     }
-
+    // console.log(updatedData);
     try {
-        const response = await axios.put(API_URL + musicId, updatedData, config);
+        const response = await axios.put(API_URL +  updatedData.musicId, {text: updatedData.text}, config);
 
         return response.data;
     } catch (error) {
@@ -64,8 +64,8 @@ const deleteMusic = async (musicId, token) => {
 const musicService = {
     createMusic,
     getMusics,
-    updateMusic,
     deleteMusic,
+    updateMusic
 } 
 
 export default musicService 

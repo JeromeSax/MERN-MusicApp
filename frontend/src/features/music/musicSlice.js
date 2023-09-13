@@ -4,7 +4,7 @@ import musicianService from './musicianService'
 
 const initialState = {
     musics: [],
-    musicians: [],
+    // musicians: [],
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -69,7 +69,7 @@ export const getMusics = createAsyncThunk
         }
     )
 
-// Add new action to your musicSlice.js
+// Update user music
 export const updateMusic = createAsyncThunk(
     'musics/update',
     async (musicData, thunkAPI) => {
@@ -192,7 +192,7 @@ export const musicSlice = createSlice({
                 // Update the state with the updated music data
                 state.musics = state.musics.map((music) =>
                     music._id === action.payload._id ? action.payload : music
-                );
+                )
             })
             .addCase(updateMusic.rejected, (state, action) => {
                 state.isLoading = false;
@@ -214,48 +214,48 @@ export const musicSlice = createSlice({
                 state.message = action.payload
             })
 
-            // Handle createMusician action
-            .addCase(createMusician.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(createMusician.fulfilled, (state, action) => {
-                state.isLoading = false;
-                state.isSuccess = true;
-                state.musicians.push(action.payload); // Add the new musician to the state
-            })
-            .addCase(createMusician.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = true;
-                state.message = action.payload;
-            })
+            // // Handle createMusician action
+            // .addCase(createMusician.pending, (state) => {
+            //     state.isLoading = true;
+            // })
+            // .addCase(createMusician.fulfilled, (state, action) => {
+            //     state.isLoading = false;
+            //     state.isSuccess = true;
+            //     state.musicians.push(action.payload); // Add the new musician to the state
+            // })
+            // .addCase(createMusician.rejected, (state, action) => {
+            //     state.isLoading = false;
+            //     state.isError = true;
+            //     state.message = action.payload;
+            // })
 
-            .addCase(getMusicians.pending, (state) => {
-                state.isLoading = true
-            })
-            .addCase(getMusicians.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
-                state.musicians = action.payload
-            })
-            .addCase(getMusicians.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
-            })
-            .addCase(deleteMusician.pending, (state) => {
-                state.isLoading = true
-            })
-            .addCase(deleteMusician.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
-                state.musicians = state.musicians.filter(
-                    (music) => music._id !== action.payload.id)
-            })
-            .addCase(deleteMusician.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
-            })
+            // .addCase(getMusicians.pending, (state) => {
+            //     state.isLoading = true
+            // })
+            // .addCase(getMusicians.fulfilled, (state, action) => {
+            //     state.isLoading = false
+            //     state.isSuccess = true
+            //     state.musicians = action.payload
+            // })
+            // .addCase(getMusicians.rejected, (state, action) => {
+            //     state.isLoading = false
+            //     state.isError = true
+            //     state.message = action.payload
+            // })
+            // .addCase(deleteMusician.pending, (state) => {
+            //     state.isLoading = true
+            // })
+            // .addCase(deleteMusician.fulfilled, (state, action) => {
+            //     state.isLoading = false
+            //     state.isSuccess = true
+            //     state.musicians = state.musicians.filter(
+            //         (music) => music._id !== action.payload.id)
+            // })
+            // .addCase(deleteMusician.rejected, (state, action) => {
+            //     state.isLoading = false
+            //     state.isError = true
+            //     state.message = action.payload
+            // })
     },
 })
 

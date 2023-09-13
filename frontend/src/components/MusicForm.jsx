@@ -1,9 +1,11 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {createMusic} from '../features/music/musicSlice'
+// import { useSelector } from 'react-redux'
 
 
 function MusicForm() {
+    // const musics = useSelector(state => state.music.musics);
     const [text, setText] = useState('')
 
     const dispatch = useDispatch()
@@ -34,6 +36,16 @@ function MusicForm() {
                 </button>
             </div>
         </form>
+
+        {/* Display the musics */}
+      {/* <div>
+        <h2>Music List</h2>
+        <ul>
+          {musics.map((music) => (
+            <li key={music._id}>{music.text}</li>
+          ))}
+        </ul>
+      </div> */}
     </section>
   )
 }

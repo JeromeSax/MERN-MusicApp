@@ -52,12 +52,12 @@ const updateMusic = asyncHandler(async (req, res) => {
         throw new Error('User not authorized')
     }
 
-    const { text } = req.body; // Assuming you want to update the 'text' property
+    const { text } = req.body; //  update the 'text' property
 
     // Update the music object
-    music.text = text;
-
-    const updatedMusic = await music.save(); // Save the updated music object
+   
+    console.log(req.body, req.params.id)
+    const updatedMusic = await Music.findByIdAndUpdate(req.params.id, {text: text}, { new: true } ); // Save the updated music object
 
     res.status(200).json(updatedMusic)
 })
