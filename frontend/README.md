@@ -1,46 +1,112 @@
-# Getting Started with Create React App and Redux
+# Gig Organizer - React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Gig Organizer is a full-stack MERN (MongoDB, Express, React, Node) application designed to help artists and musicians streamline the organization of their gigs. The app provides functionalities for managing setlists, band members, and instruments, with plans to incorporate features for venue locations and video content in the future.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User Registration**: Users can create accounts to access the app's features.
 
-### `npm test`
+- **Login Page**: Upon registration, users are directed to a login page where they receive a brief overview of the app's purpose and functionality.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Setlist Management**:
+  - Add songs to setlists with a timestamp including date, time, and day.
+  - Edit and save changes to setlists.
+  - Delete songs from setlists.
 
-### `npm run build`
+- **Musicians/Band Members Section**:
+  - Add and manage information about musicians and band members.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Instrument Section**:
+  - Add and manage information about instruments.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Upcoming Features**:
+  - Song and video link input for rehearsal review.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+- HTML
+- CSS
+- JavaScript
+- Express
+- MongoDB
+- React
+- Node
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Known Issues
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Styling needs improvement.
+- Functionality for input/edit/save features in the musician/band/instrument section is being actively worked on.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
 
-## Learn More
+```bash
+git clone https://github.com/yourusername/gig-organizer.git
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Navigate to the project directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd gig-organizer
+```
+
+3. Install dependencies for the server:
+
+```bash
+npm install
+```
+
+4. Navigate to the client directory:
+
+```bash
+cd client
+```
+
+5. Install dependencies for the client:
+
+```bash
+npm install
+```
+
+6. Return to the main project directory:
+
+```bash
+cd ..
+```
+
+7. Start the development server:
+
+```bash
+npm run dev
+```
+
+## Links
+
+- [GitHub Repository](https://github.com/JeromeSax/MERN-MusicApp)
+- [Trello Board](https://trello.com/b/6vrWvdqH/music-player-app)
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- 2023 SE-Cohort (My instructors and classmates are dope!)
+
+
+## Contact
+
+For any inquiries, please contact [jeromesloss13@gmail.com].
+
+---
+
+
