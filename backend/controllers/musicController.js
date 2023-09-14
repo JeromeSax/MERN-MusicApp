@@ -33,14 +33,16 @@ const setMusic = asyncHandler(async (req, res) => {
 // @route PUT /api/music/:id
 // @access Private
 const updateMusic = asyncHandler(async (req, res) => {
+    // Find the music object by its ID
     const music = await Music.findById(req.params.id)
 
+     // If the music object is not found, return an error response
     if(!music) {
         res.status(400)
         throw new Error('Music not found')
     }
  
-    // Check for user
+    // Check for user authentication
     if(!req.user) {
         res.status(401)
         throw new Error('User not found')
@@ -55,9 +57,10 @@ const updateMusic = asyncHandler(async (req, res) => {
     const { text } = req.body; //  update the 'text' property
 
     // Update the music object
-   
+//     log the request body and music ID
     console.log(req.body, req.params.id)
-    const updatedMusic = await Music.findByIdAndUpdate(req.params.id, {text: text}, { new: true } ); // Save the updated music object
+    // Update the text property of the music object, set the text property to the new value
+    const updatedMusic = await Music.findByIdAndUpdate(req.params.id, {text: text}, { new: true } ); // Return the updated music object
 
     res.status(200).json(updatedMusic)
 })

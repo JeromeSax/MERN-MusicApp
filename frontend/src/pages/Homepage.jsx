@@ -11,11 +11,13 @@ import {getMusics, reset} from '../features/music/musicSlice'
 
 function Homepage() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() 
+  // The useDispatch hook is used to get the dispatch function, which is used to trigger actions in Redux.
 
   const { user } = useSelector((state) => state.auth)
   const {musics, isLoading, isError, message} = useSelector((state) => state.music);
 
+  //  used to fetch music data and handle authentication.
   useEffect(() => {
     if(!user){
         navigate("/login")

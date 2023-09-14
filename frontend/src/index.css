@@ -103,11 +103,11 @@ h3 {
 }
 
 .music {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(38, 67%, 44%);
   margin: 10px 0;
   padding: 20px 0 10px;
+  position: relative;
   width: 300px;
-  margin-right: 40px;
 }
 
 .music .close {
